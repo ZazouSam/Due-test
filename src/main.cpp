@@ -8,7 +8,7 @@ void setup()
   Wire.begin(2);
   // Wire1.begin(3);
   Wire.onRequest(requestEvent); // register event
-  Serial.begin(9600);
+  Serial.begin(115200);
   BTN_setup();
 }
 

@@ -1,110 +1,93 @@
 #include <Arduino.h>
-#include <Bounce2.h>
 #include <Wire.h>
+#include "Clavier.h"
 
 void requestEvent();
-
-Bounce debouncer53 = Bounce();
-Bounce debouncer51 = Bounce();
-Bounce debouncer49 = Bounce();
-Bounce debouncer47 = Bounce();
-Bounce debouncer45 = Bounce();
-
-const int button53 = 53;
-const int button51 = 51;
-const int button49 = 49;
-const int button47 = 47;
-const int button45 = 45;
-
-int bouton;
 
 void setup()
 {
   Wire.begin(2);
+  // Wire1.begin(3);
   Wire.onRequest(requestEvent); // register event
   Serial.begin(9600);
-  pinMode(button53, INPUT);
-  pinMode(button51, INPUT);
-  pinMode(button49, INPUT);
-  pinMode(button47, INPUT);
-  pinMode(button45, INPUT);
-
-  debouncer53.attach(button53);
-  debouncer51.attach(button51);
-  debouncer49.attach(button49);
-  debouncer47.attach(button47);
-  debouncer45.attach(button45);
-  debouncer53.interval(5);
-  debouncer51.interval(5);
-  debouncer49.interval(5);
-  debouncer47.interval(5);
-  debouncer45.interval(5);
+  BTN_setup();
 }
 
 void loop()
 {
-  debouncer53.update();
-  debouncer51.update();
-  debouncer49.update();
-  debouncer47.update();
-  debouncer45.update();
-
-  if (debouncer53.rose())
-  {
-    bouton = 53;
-    Serial.println("Button 53 pressed");
-  }
-  if (debouncer51.rose())
-  {
-    bouton = 51;
-    Serial.println("Button 51 pressed");
-  }
-  if (debouncer49.rose())
-  {
-    bouton = 49;
-    Serial.println("Button 49 pressed");
-  }
-  if (debouncer47.rose())
-  {
-    bouton = 47;
-    Serial.println("Button 47 pressed");
-  }
-  if (debouncer45.rose())
-  {
-    bouton = 45;
-    Serial.println("Button 45 pressed");
-  }
+  BTN_I2C_Serial();
 }
 
 void requestEvent()
 {
-  //Wire.write("hello "); // respond with message of 6 bytes
-                        // as expected by master
   switch (bouton)
   {
-  case 53:
-    Wire.write("53");
+  case 16:
+    Wire.write("16");
     bouton = 0;
     break;
-  case 51:
-    Wire.write("51");
+  case 15:
+    Wire.write("15");
     bouton = 0;
     break;
-  case 49:
-    Wire.write("49");
+  case 14:
+    Wire.write("14");
     bouton = 0;
     break;
-  case 47:
-    Wire.write("47");
+  case 13:
+    Wire.write("13");
     bouton = 0;
     break;
-  case 45:
-    Wire.write("45");
+  case 12:
+    Wire.write("12");
+    bouton = 0;
+    break;
+  case 11:
+    Wire.write("11");
+    bouton = 0;
+    break;
+  case 10:
+    Wire.write("10");
+    bouton = 0;
+    break;
+  case 9:
+    Wire.write("9");
+    bouton = 0;
+    break;
+  case 8:
+    Wire.write("8");
+    bouton = 0;
+    break;
+  case 7:
+    Wire.write("7");
+    bouton = 0;
+    break;
+  case 6:
+    Wire.write("6");
+    bouton = 0;
+    break;
+  case 5:
+    Wire.write("5");
+    bouton = 0;
+    break;
+  case 4:
+    Wire.write("4");
+    bouton = 0;
+    break;
+  case 3:
+    Wire.write("3");
+    bouton = 0;
+    break;
+  case 2:
+    Wire.write("2");
+    bouton = 0;
+    break;
+  case 1:
+    Wire.write("1");
     bouton = 0;
     break;
   default:
     Wire.write("XX");
-    //Serial.println("default");
     break;
   }
 }

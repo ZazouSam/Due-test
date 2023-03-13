@@ -41,39 +41,22 @@ int bouton;
 // fonction that contains the 16 buttons declaration
 void BTN_setup(void)
 {
-    pinMode(BTN16, INPUT);
-    pinMode(BTN15, INPUT);
-    pinMode(BTN14, INPUT);
-    pinMode(BTN13, INPUT);
-    pinMode(BTN12, INPUT);
-    pinMode(BTN11, INPUT);
-    pinMode(BTN10, INPUT);
-    pinMode(BTN9, INPUT);
-    pinMode(BTN8, INPUT);
-    pinMode(BTN7, INPUT);
-    pinMode(BTN6, INPUT);
-    pinMode(BTN5, INPUT);
-    pinMode(BTN4, INPUT);
-    pinMode(BTN3, INPUT);
-    pinMode(BTN2, INPUT);
-    pinMode(BTN1, INPUT);
-
-    debouncer52.attach(BTN16);
-    debouncer50.attach(BTN15);
-    debouncer48.attach(BTN14);
-    debouncer46.attach(BTN13);
-    debouncer44.attach(BTN12);
-    debouncer42.attach(BTN11);
-    debouncer40.attach(BTN10);
-    debouncer38.attach(BTN9);
-    debouncer36.attach(BTN8);
-    debouncer34.attach(BTN7);
-    debouncer32.attach(BTN6);
-    debouncer30.attach(BTN5);
-    debouncer28.attach(BTN4);
-    debouncer26.attach(BTN3);
-    debouncer24.attach(BTN2);
-    debouncer22.attach(BTN1);
+    debouncer52.attach(BTN16, INPUT);
+    debouncer50.attach(BTN15, INPUT);
+    debouncer48.attach(BTN14, INPUT);
+    debouncer46.attach(BTN13, INPUT);
+    debouncer44.attach(BTN12, INPUT);
+    debouncer42.attach(BTN11, INPUT);
+    debouncer40.attach(BTN10, INPUT);
+    debouncer38.attach(BTN9, INPUT);
+    debouncer36.attach(BTN8, INPUT);
+    debouncer34.attach(BTN7, INPUT);
+    debouncer32.attach(BTN6, INPUT);
+    debouncer30.attach(BTN5, INPUT);
+    debouncer28.attach(BTN4, INPUT);
+    debouncer26.attach(BTN3, INPUT);
+    debouncer24.attach(BTN2, INPUT);
+    debouncer22.attach(BTN1, INPUT);
 
     debouncer52.interval(5);
     debouncer50.interval(5);

@@ -1,6 +1,5 @@
 #include <Arduino.h>
 #include <Wire.h>
-#include "Clavier.h"
 #include "Wire_Clavier.h"
 
 void setup()
